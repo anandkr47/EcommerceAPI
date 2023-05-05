@@ -1,5 +1,16 @@
 # EcommerceAPI 
+To RUN THIS API ON YOUR LOCAL HOST 
 
+STEP 1 CLONE THIS REPOSITORY
+
+STEP 2 INSTALL NODE 
+
+STEP 3  npm install
+
+STEP 4 open terminal write node index to start the server on local host
+
+
+you can also use the online hosted link below 
 hosted link https://ecommerceapi-production-2da9.up.railway.app
 
 This is a ecommerce api which you can use to manage your products on inventory.
@@ -35,3 +46,4 @@ it has several features like insert delete update and get:
  here the /:id is the unique id token given by the api which is the id of the product which you want to delete. 
  this request will delete the product in your datbase.
  
+AUTHOR: ANAND KUMAR
