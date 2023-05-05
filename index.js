@@ -19,29 +19,31 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   });
 
 const productSchema = new mongoose.Schema({
+  id: Number,
   name: String,
   quantity: Number,
 });
 
 const Product = mongoose.model('Product', productSchema);
 
-app.get('/api/products', async (req, res) => {
+app.get('/getproducts', async (req, res) => {
   const products = await Product.find();
   res.json(products);
 });
 
-app.post('/api/products', async (req, res) => {
+app.post('/addproducts', async (req, res) => {
   const product = new Product(req.body);
   await product.save();
   res.json(product);
 });
 
-app.put('/api/products/:id', async (req, res) => {
+app.put('/updateproducts/:id', async (req, res) => {
+  
   const product = await Product.findOneAndUpdate({ _id: req.params.id }, { quantity: req.body.quantity }, { new: true });
   res.json(product);
 });
 
-app.delete('/api/products/:id', async (req, res) => {
+app.delete('/deleteproducts/:id', async (req, res) => {
   await Product.findByIdAndRemove(req.params.id);
   res.json({ message: 'Product deleted' });
 });
